@@ -1,0 +1,39 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+Proxy:
+- name: "rvpn"
+  type: socks5
+  server: 127.0.0.1
+  port: 2080
+  tls: true
+  skip-cert-verify: true
+  udp: true
+Proxy Group:
+- name: rvpn
+  type: select
+  proxies:
+    - rvpn
+Rule:
+- DOMAIN-SUFFIX,zju.edu.cn,rvpn
+- DOMAIN-KEYWORD,cc98,rvpn
+- DOMAIN-KEYWORD,nexushd,rvpn
+- DOMAIN-SUFFIX,acm.org,rvpn
+- DOMAIN-SUFFIX,cnki.net,rvpn
+- DOMAIN-SUFFIX,gtadata.com,rvpn
+- DOMAIN-SUFFIX,jstor.org,rvpn
+- DOMAIN-SUFFIX,webofscience.com,rvpn
+- DOMAIN-SUFFIX,inoteexpress.com,rvpn
+- DOMAIN-SUFFIX,pnas.org,rvpn
+- DOMAIN-SUFFIX,cnpereading.com,rvpn
+- DOMAIN-SUFFIX,sciencemag.org,rvpn
+- DOMAIN-SUFFIX,cas.org,rvpn
+- DOMAIN-SUFFIX,webofknowledge.com,rvpn
+- DOMAIN-SUFFIX,pkulaw.com,rvpn
+- DOMAIN-SUFFIX,sslibrary.com,rvpn
+- DOMAIN-SUFFIX,serialssolutions.com,rvpn
+- DOMAIN-SUFFIX,duxiu.com,rvpn
+- DOMAIN-SUFFIX,wanfangdata.com.cn,rvpn
+- DOMAIN-SUFFIX,koolearn.com,rvpn
+- DOMAIN-SUFFIX,cssci.nju.edu.cn,rvpn
+- IP-CIDR,10.0.0.0/8,rvpn
