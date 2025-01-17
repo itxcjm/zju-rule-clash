@@ -1,39 +1,33 @@
 port: 7890
 socks-port: 7891
 allow-lan: false
-Proxy:
-- name: "rvpn"
-  type: socks5
-  server: 127.0.0.1
-  port: 2080
-  tls: true
-  skip-cert-verify: true
-  udp: true
-Proxy Group:
-- name: rvpn
-  type: select
-  proxies:
-    - rvpn
-Rule:
-- DOMAIN-SUFFIX,zju.edu.cn,rvpn
-- DOMAIN-KEYWORD,cc98,rvpn
-- DOMAIN-KEYWORD,nexushd,rvpn
-- DOMAIN-SUFFIX,acm.org,rvpn
-- DOMAIN-SUFFIX,cnki.net,rvpn
-- DOMAIN-SUFFIX,gtadata.com,rvpn
-- DOMAIN-SUFFIX,jstor.org,rvpn
-- DOMAIN-SUFFIX,webofscience.com,rvpn
-- DOMAIN-SUFFIX,inoteexpress.com,rvpn
-- DOMAIN-SUFFIX,pnas.org,rvpn
-- DOMAIN-SUFFIX,cnpereading.com,rvpn
-- DOMAIN-SUFFIX,sciencemag.org,rvpn
-- DOMAIN-SUFFIX,cas.org,rvpn
-- DOMAIN-SUFFIX,webofknowledge.com,rvpn
-- DOMAIN-SUFFIX,pkulaw.com,rvpn
-- DOMAIN-SUFFIX,sslibrary.com,rvpn
-- DOMAIN-SUFFIX,serialssolutions.com,rvpn
-- DOMAIN-SUFFIX,duxiu.com,rvpn
-- DOMAIN-SUFFIX,wanfangdata.com.cn,rvpn
-- DOMAIN-SUFFIX,koolearn.com,rvpn
-- DOMAIN-SUFFIX,cssci.nju.edu.cn,rvpn
-- IP-CIDR,10.0.0.0/8,rvpn
+proxies:
+  - {name: rvpn, server: 127.0.0.1, port: 2080, type: socks5, udp: true}
+proxy-groups:
+  - name: zju
+    type: select
+    proxies:
+      - rvpn
+rules:
+- DOMAIN-SUFFIX,zju.edu.cn,zju
+- DOMAIN-KEYWORD,cc98,zju
+- DOMAIN-KEYWORD,nexushd,zju
+- DOMAIN-SUFFIX,acm.org,zju
+- DOMAIN-SUFFIX,cnki.net,zju
+- DOMAIN-SUFFIX,gtadata.com,zju
+- DOMAIN-SUFFIX,jstor.org,zju
+- DOMAIN-SUFFIX,webofscience.com,zju
+- DOMAIN-SUFFIX,inoteexpress.com,zju
+- DOMAIN-SUFFIX,pnas.org,zju
+- DOMAIN-SUFFIX,cnpereading.com,zju
+- DOMAIN-SUFFIX,sciencemag.org,zju
+- DOMAIN-SUFFIX,cas.org,zju
+- DOMAIN-SUFFIX,webofknowledge.com,zju
+- DOMAIN-SUFFIX,pkulaw.com,zju
+- DOMAIN-SUFFIX,sslibrary.com,zju
+- DOMAIN-SUFFIX,serialssolutions.com,zju
+- DOMAIN-SUFFIX,duxiu.com,zju
+- DOMAIN-SUFFIX,wanfangdata.com.cn,zju
+- DOMAIN-SUFFIX,koolearn.com,zju
+- DOMAIN-SUFFIX,cssci.nju.edu.cn,zju
+- IP-CIDR,10.0.0.0/8,zju
