@@ -31,3 +31,4 @@ rules:
 - DOMAIN-SUFFIX,koolearn.com,zju
 - DOMAIN-SUFFIX,cssci.nju.edu.cn,zju
 - IP-CIDR,10.0.0.0/8,zju
+- DOMAIN-SUFFIX,incopat.com,zju
